@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import { Statistics } from '../Statistics/Statistics';
-import { FeedbackOptions } from '../FeedbackOptions/FeedbackOptions';
+// import React, { Component } from 'react';
+// import { Statistics } from '../Statistics/Statistics';
+// import { FeedbackOptions } from '../FeedbackOptions/FeedbackOptions';
 //import { Notification } from './Notification/Notification';
 
 export function Section({ title, children }) {
