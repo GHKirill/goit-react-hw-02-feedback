@@ -1,10 +1,10 @@
-import { Notification } from '../Notification/Notification';
+import { NotificationMessage } from '../NotificationMessage/NotificationMessage';
 export function Statistics({ good, neutral, bad, total, positivePercentage }) {
   return (
     <>
       <h3>Statistics</h3>
       {!total ? (
-        <Notification message={'There is no feedback'} />
+        <NotificationMessage message={'There is no feedback'} />
       ) : (
         <>
           <p>Good: {good}</p>
