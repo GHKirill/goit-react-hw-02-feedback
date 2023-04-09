@@ -1,4 +1,6 @@
+import PropTypes from 'prop-types';
 import { NotificationMessage } from '../NotificationMessage/NotificationMessage';
+import css from './Statistisc.module.css';
 export function Statistics({ good, neutral, bad, total, positivePercentage }) {
   return (
     <>
@@ -7,16 +9,32 @@ export function Statistics({ good, neutral, bad, total, positivePercentage }) {
         <NotificationMessage message={'There is no feedback'} />
       ) : (
         <>
-          <p>Good: {good}</p>
-          <p>Neutral: {neutral}</p>
-          <p>Bad: {bad}</p>
-          <p>Total:{total} </p>
+          <p>
+            Good: <span className={css.info}>{good}</span>
+          </p>
+          <p>
+            Neutral: <span className={css.info}>{neutral}</span>
+          </p>
+          <p>
+            Bad: <span className={css.info}>{bad}</span>
+          </p>
+          <p>
+            Total: <span className={css.info}>{total}</span>
+          </p>
           <p>
             Positive feedback:
-            {positivePercentage}%
+            <span className={css.info}>{positivePercentage}</span>%
           </p>
         </>
       )}
     </>
   );
 }
+
+Statistics.propTypes = {
+  good: PropTypes.number.isRequired,
+  neutral: PropTypes.number.isRequired,
+  bad: PropTypes.number.isRequired,
+  total: PropTypes.number.isRequired,
+  positivePercentage: PropTypes.number.isRequired,
+};
