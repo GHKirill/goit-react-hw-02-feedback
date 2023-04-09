@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Section } from './Feedbacks/Section/Section';
 import { FeedbackOptions } from './Feedbacks/FeedbackOptions/FeedbackOptions';
 import { Statistics } from './Feedbacks/Statistics/Statistics';
-import css from './App.module.css';
+import css from 'components/Feedbacks/FeedbackOptions/Feedback.module.css';
 
 export class App extends Component {
   state = {
@@ -10,28 +10,24 @@ export class App extends Component {
     neutral: 0,
     bad: 0,
   };
-
-  onButtonGoodClick = event => {
+  styledButtonAfterClick = event => {
     event.target.classList.add(`${css.active}`);
     setTimeout(() => {
       event.target.classList.remove(`${css.active}`);
     }, 300);
+  };
+  onButtonGoodClick = event => {
+    this.styledButtonAfterClick(event);
     return this.setState(prevState => ({ good: prevState.good + 1 }));
   };
 
   onButtonNeutralClick = event => {
-    event.target.classList.add(`${css.active}`);
-    setTimeout(() => {
-      event.target.classList.remove(`${css.active}`);
-    }, 300);
+    this.styledButtonAfterClick(event);
     this.setState(prevState => ({ neutral: prevState.neutral + 1 }));
   };
 
   onButtonBadClick = event => {
-    event.target.classList.add(`${css.active}`);
-    setTimeout(() => {
-      event.target.classList.remove(`${css.active}`);
-    }, 300);
+    this.styledButtonAfterClick(event);
     return this.setState(prevSate => ({ bad: prevSate.bad + 1 }));
   };
   countTotalFeedback() {
