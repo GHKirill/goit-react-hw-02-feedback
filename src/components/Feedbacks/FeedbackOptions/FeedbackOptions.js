@@ -8,7 +8,7 @@ export function FeedbackOptions({ options, onLeaveFeedback }) {
           <button
             type="button"
             key={option}
-            onClick={() => onLeaveFeedback[index]()}
+            onClick={event => onLeaveFeedback[index](event)}
             className={css.button}
           >
             {option}

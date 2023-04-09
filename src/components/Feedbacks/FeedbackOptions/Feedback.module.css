@@ -10,12 +10,13 @@
   background-color: rgb(221, 215, 215);
   text-transform: capitalize;
   cursor: pointer;
-  transition: transform box-shadow linear 250ms;
+  transition: all ease 250ms;
 }
 .button:hover {
   transform: scale(1.2);
   box-shadow: -1px -1px 11px -4px #000000;
 }
-.active{
-  background-color: blue
+.active {
+  background-color: blue;
+  color: white;
 }

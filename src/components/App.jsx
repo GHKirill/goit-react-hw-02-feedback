@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Section } from './Feedbacks/Section/Section';
 import { FeedbackOptions } from './Feedbacks/FeedbackOptions/FeedbackOptions';
 import { Statistics } from './Feedbacks/Statistics/Statistics';
+import css from './App.module.css';
 
 export class App extends Component {
   state = {
@@ -11,19 +12,26 @@ export class App extends Component {
   };
 
   onButtonGoodClick = event => {
+    event.target.classList.add(`${css.active}`);
+    setTimeout(() => {
+      event.target.classList.remove(`${css.active}`);
+    }, 300);
     return this.setState(prevState => ({ good: prevState.good + 1 }));
   };
 
   onButtonNeutralClick = event => {
-    //this.classList.add('active');
-    // setTimeout(() => {
-    //   event.target.classList.remove('active');
-    // }, 300);
+    event.target.classList.add(`${css.active}`);
+    setTimeout(() => {
+      event.target.classList.remove(`${css.active}`);
+    }, 300);
     this.setState(prevState => ({ neutral: prevState.neutral + 1 }));
   };
 
   onButtonBadClick = event => {
-    console.log(this);
+    event.target.classList.add(`${css.active}`);
+    setTimeout(() => {
+      event.target.classList.remove(`${css.active}`);
+    }, 300);
     return this.setState(prevSate => ({ bad: prevSate.bad + 1 }));
   };
   countTotalFeedback() {
