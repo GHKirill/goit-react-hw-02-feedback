@@ -16,19 +16,10 @@ export class App extends Component {
       event.target.classList.remove(`${css.active}`);
     }, 300);
   };
-  onButtonGoodClick = event => {
+  onButtonClick = event => {
+    const { name } = event.currentTarget;
     this.styledButtonAfterClick(event);
-    return this.setState(prevState => ({ good: prevState.good + 1 }));
-  };
-
-  onButtonNeutralClick = event => {
-    this.styledButtonAfterClick(event);
-    this.setState(prevState => ({ neutral: prevState.neutral + 1 }));
-  };
-
-  onButtonBadClick = event => {
-    this.styledButtonAfterClick(event);
-    return this.setState(prevSate => ({ bad: prevSate.bad + 1 }));
+    return this.setState(prevState => ({ [name]: prevState[name] + 1 }));
   };
   countTotalFeedback() {
     return this.state.good + this.state.neutral + this.state.bad;
@@ -45,11 +36,7 @@ export class App extends Component {
         <Section title={'Please leave feedback'}>
           <FeedbackOptions
             options={Object.keys(this.state)}
-            onLeaveFeedback={[
-              this.onButtonGoodClick,
-              this.onButtonNeutralClick,
-              this.onButtonBadClick,
-            ]}
+            onLeaveFeedback={this.onButtonClick}
           ></FeedbackOptions>
         </Section>
         <Section>

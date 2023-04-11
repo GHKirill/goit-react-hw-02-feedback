@@ -8,7 +8,9 @@ export function FeedbackOptions({ options, onLeaveFeedback }) {
           <button
             type="button"
             key={option}
-            onClick={event => onLeaveFeedback[index](event)}
+            name={option}
+            // onClick={event => onLeaveFeedback[index](event)}
+            onClick={event => onLeaveFeedback(event)}
             className={css.button}
           >
             {option}
@@ -20,6 +22,6 @@ export function FeedbackOptions({ options, onLeaveFeedback }) {
 }
 
 FeedbackOptions.propTypes = {
-  options: PropTypes.arrayOf(PropTypes.string),
-  onLeaveFeedback: PropTypes.arrayOf(PropTypes.func),
+  options: PropTypes.arrayOf(PropTypes.string.isRequired),
+  onLeaveFeedback: PropTypes.func.isRequired,
 };
